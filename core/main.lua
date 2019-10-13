@@ -6,8 +6,7 @@ function InstanceTracker:OnInitialize()
   self.db = LibStub("AceDB-3.0"):New('InstanceTrackerDB', {
     global = {}
   })
-  self.store = REDUX:createStore()
-  self.store:dispatch(action(STORE_ACTIONS.Load, self.db.global))
+  self.store = initStore(self.db.global)
   self.store:subscribe(function()
     self.db.global = self.store:getState()
   end)
