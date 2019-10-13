@@ -1,5 +1,15 @@
-require "./lib/Json/json";
-require "./test/framework";
+require './lib/Json/json';
+require './core/class';
+require './test/framework';
 
-local ut = UnitTest:new("Basic Example")
-ut:AssertEquals("itemA", "itemB")
+describe('Basic Examples', function(it)
+
+  it('Assert Equals - Passes', function(o)
+    o:AssertEquals('itemA', 'itemA')
+  end)
+
+  it('Assert Equals - Fails', function(o)
+    o:AssertEquals('itemA', 'itemB')
+  end)
+
+end)
