@@ -1,15 +1,16 @@
-require './lib/Json/json';
-require './core/class';
-require './test/framework';
+-- Libraries
+require 'lib/Json/json'
 
-describe('Basic Examples', function(it)
+-- Core
+require 'core/utils/class'
+require 'core/utils/redux'
+require 'core/classes'
+require 'core/store'
 
-  it('Assert Equals - Passes', function(o)
-    o:AssertEquals('itemA', 'itemA')
-  end)
+-- Test Libs
+require 'test/_test-framework'
 
-  it('Assert Equals - Fails', function(o)
-    o:AssertEquals('itemA', 'itemB')
-  end)
-
-end)
+-- Tests
+-- require 'test/examples-spec'
+require 'test/classes-spec'
+require 'test/store-spec'
