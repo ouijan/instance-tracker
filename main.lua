@@ -9,6 +9,7 @@ require 'core/store'
 
 -- Test Libs
 require 'test/_test-framework'
+require 'test/_mock-data'
 
 -- Tests
 -- require 'test/examples-spec'

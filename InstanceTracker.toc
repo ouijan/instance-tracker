@@ -6,4 +6,5 @@
 ## OptionalDeps: LibStub, AceAddon-3.0
 ## X-Embeds: LibStub
 ## SavedVariables: InstanceTrackerDB
+
 InstanceTracker.xml

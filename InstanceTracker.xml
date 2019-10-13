@@ -22,5 +22,9 @@
   <!-- <Script file="locale/enUS.lua"/> -->
 
   <!-- Core -->
+  <Script file="core/utils/class.lua"/>
+  <Script file="core/utils/redux.lua"/>
+  <Script file="core/store.lua"/>
+  <Script file="core/main.lua"/>
 
 </Ui>

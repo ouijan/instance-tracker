@@ -1,9 +1,16 @@
+EMPTY_STATE = {
+  locks = {},
+  locksThisReset = {},
+  currentInstance = {},
+}
+
 function action(action, data)
   return {
     type = action.type,
     data = data
   }
 end
+
 ------------------------------------------
 -- SetStateAction
 ------------------------------------------
@@ -25,11 +32,11 @@ end
 
 local function trackInstance(data, state)
   local lockKey = instanceLockKey(data)
-  local existingLock = state.locksThisReset[key]
+  local existingLock = state.locksThisReset[lockKey]
   if existingLock then
     table.insert(existingLock.logs, data)
   else
-    state.locksThisReset[key] = {
+    state.locksThisReset[lockKey] = {
       location = data.location,
       owner = data.owner,
       enteredAt = data.timestamp,
@@ -66,7 +73,7 @@ end
 -- ResetInstancesAction
 ------------------------------------------
 ResetInstancesAction = { type = 'ResetInstancesAction' }
-function TrackLocationAction:reduce(data, state)
+function ResetInstancesAction:reduce(data, state)
   for k, lock in pairs(state.locksThisReset) do
     table.insert(state.locks, lock)
   end
@@ -92,6 +99,6 @@ end
 
 function initStore(initialState)
   local store = REDUX.createStore(stateReducer)
-  store:dispatch(action(SetStateAction, initialState))
+  store:dispatch(action(SetStateAction, initialState or EMPTY_STATE))
   return store
 end

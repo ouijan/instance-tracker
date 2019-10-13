@@ -7,4 +7,12 @@ describe('initStore', function (it)
     assert:Equals(store:getState(), state)
   end)
 
+  it('can run mock events', function(assert)
+    local store = initStore()
+    for k, action in pairs(MOCK_EVENTS) do
+      store:dispatch(action)
+    end
+    assert:True(true)
+  end)
+
 end)
