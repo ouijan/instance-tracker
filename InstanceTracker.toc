@@ -1,0 +1,9 @@
+## Interface: 11302
+## Title: InstanceTracker
+## Notes: Know exactly when you'll get locked out of instances, and when they will be reset.
+## Author: Lammiwinks (ouijan)
+## Version: 0.0.1
+## OptionalDeps: LibStub, AceAddon-3.0
+## X-Embeds: LibStub
+## SavedVariables: InstanceTrackerDB
+InstanceTracker.xml
