@@ -98,7 +98,5 @@ local function stateReducer(state, action)
 end
 
 function initStore(initialState)
-  local store = REDUX.createStore(stateReducer)
-  store:dispatch(action(SetStateAction, initialState or EMPTY_STATE))
-  return store
+  return REDUX.createStore(stateReducer, initialState or EMPTY_STATE)
 end
